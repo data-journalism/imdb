@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    title : {
+        text: '平均票房各类型排名&整体投资回报率',
+        x: '35%',
+        y: '2%',
+       
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            crossStyle: {
+                color: '#999'
+            }
+        }
+    },
+    toolbox: {
+        feature: {
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    legend: {
+        data:['','']
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['Animation','Adventure','Family','Science Fiction','Fantasy','Action','Mystery','History','Thriller','Romance','War','Comedy','Drama','Horror','Crime','Western','Music','Documentary'],
+            axisPointer: {
+                type: 'shadow'
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '票房',
+            min: 20000000,
+            max: 340000000,
+            interval: 20000000,
+            axisLabel: {
+                formatter: '{value} $'
+            }
+        },
+        {
+            type: 'value',
+            name: '投资回报率',
+            min: 0,
+            max: 400,
+            interval: 50,
+            axisLabel: {
+                formatter: '{value} %'
+            }
+        }
+    ],
+    series: [
+        {
+            name:'平均票房',
+            type:'bar',
+            data:[298941629.2,246941868,234061585.7,204763414,185404327.7,155542667,102283092.2,100777495.3,100750394.8,100361887,84900524.44,84185902.74,73000347.15,67561709.83,66727636.13,60836316.5,48582505.85,24582452.97],
+            markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+        },
+        
+        {
+            name:'整体投资回报率',
+            type:'bar',
+            yAxisIndex: 1,
+            data:[261.56, 226.52, 278.40, 249.28, 187.62,167.16, 207.17, 219.32, 159.48, 240.98,78.06, 205.66, 174.70, 311.69,142.11, 118.01,125.05,363.08],
+            markPoint : {
+                data : [
+                    {name : '整体投资回报率最高', value : 363.08, xAxis:17, yAxis: 363.08},
+                    {name : '整体投资回报率最低', value : 78.06, xAxis: 10, yAxis:78.06}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+        }
+    ]
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
