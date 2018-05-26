@@ -2,39 +2,41 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<!-- 引入 ECharts 文件 -->
 	<script src="echarts.min.js"></script>
-	<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
-	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
-	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
-	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-	<style>
+	<script src="jquery.min.js"></script>
+	<script src="bootstrap.min.js"></script>
+	<link rel="stylesheet" href="bootstrap.min.css" />
+	<style type="text/css">
 		#scatter div {
 			width: 1000px!important;
 		}
+		@font-face {
+			font-family:方正宋刻本秀楷简体;
+			src:url(方正宋刻本秀楷简.TTF);
+		}
+		@font-face {
+			font-family:方正清刻本悦宋简体;
+			src:url(方正清刻本悦宋简.TTF);
+		}
+
 	</style>
+
 </head>
 <body>
 
 	<body style="width:1000px;margin:0 auto;">
 		<a href="#title" style="position:fixed;bottom:10px;margin-left:1020px;">返回顶部</a>
-		<div style="text-align:center;line-height:80px;width:100%;font-size:40px;font-family:方正清刻本悦宋简体 " id="title">电影如何成功：<br/>基于IMDB 5000部电影的数据可视化分析（1916-2016）</div>
-		<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">作为文化产业的重要组成部分，电影产业的发展对推动国民经济的增长有着极大的作用。伴随着“互联网＋”时代的到来，电影产业的前景更是一片大好。对于投入市场的电影来说，票房收入是电影产品市场表现的直接表征，因此，电影票房收入的提升对电影产业的发展大有助益。但电影作为高风险产业，探求制约商业电影票房收入的因素，以获取更多的票房收入，是十分值得探讨的问题。基于此，本文就电影市场中影响电影票房收入的影响因素进行客观、细致的研究，从而为电影制片商和投资者提供决策参考与实践指导。</div>
-		<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">关于电影票房的研究，大多以定性分析及对单一因素分析为主，缺乏对多方面影响因素的探讨，而且学者们在影响票房的重要因素上还存在着比较大的分歧。因此，本文将选取The Internet Movie Database (IMDB) 上1916-2016年5000部电影，通过理论分析、建立实证模型以及可视化呈现，分别从经济环境、档期、类型、成本、网络热度和评分六个角度展开全面、客观、进一步的定性和定量研究。</div>
-		<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">基于可视化的描述性分析发现，经济环境、档期、类型、成本、网络热度和评分都会对电影票房影响。经济环境有利于电影的发展；不同的电影适合不同的档期，电影在选档时更应该遵循“匹配”原则，而不是一味追求黄金档期；对于电影类型来说，市场上最有潜力的是这五种类型：动画片、冒险片、家庭片、科幻片和奇幻片，它们都具备冲击高票房的潜力。恐怖片和纪录片不仅制作成本小而且风险最低，在投资回报上也是最有保证的。不过基于电影市场的发展趋势，制片商更应该关注电影类型的有机融合和注重原创内容的打造。通过建立线性回归模型，本研究进一步发现，电影成本对票房影响最大，电影的网络热度次之，评分影响最低。最后，根据研究结论，本文提出了一系列有助于票房增长的建议。
+		<div style="text-align:center;line-height:80px;width:100%;font-size:40px;font-family:方正清刻本悦宋简体;font-weight:bold " id="title">电影如何成功：<br/>基于IMDB 5000部电影的数据可视化分析（1916-2016）</div>
+		<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">作为文化产业的重要组成部分，电影产业的发展对推动国民经济的增长有着极大的作用。伴随着“互联网＋”时代的到来，电影产业的前景更是一片大好。对于投入市场的电影来说，票房收入是电影产品市场表现的直接表征，因此，电影票房收入的提升对电影产业的发展大有助益。但电影作为高风险产业，探求制约商业电影票房收入的因素，以获取更多的票房收入，是十分值得探讨的问题。基于此，本文就电影市场中影响电影票房收入的影响因素进行客观、细致的研究，从而为电影制片商和投资者提供决策参考与实践指导。</div>
+		<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">关于电影票房的研究，大多以定性分析及对单一因素分析为主，缺乏对多方面影响因素的探讨，而且学者们在影响票房的重要因素上还存在着比较大的分歧。因此，本文将选取The Internet Movie Database (IMDB) 上1916-2016年5000部电影，通过理论分析、建立实证模型以及可视化呈现，分别从经济环境、档期、类型、成本、网络热度和评分六个角度展开全面、客观、进一步的定性和定量研究。</div>
+		<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">基于可视化的描述性分析发现，经济环境、档期、类型、成本、网络热度和评分都会对电影票房影响。经济环境有利于电影的发展；不同的电影适合不同的档期，电影在选档时更应该遵循“匹配”原则，而不是一味追求黄金档期；对于电影类型来说，市场上最有潜力的是这五种类型：动画片、冒险片、家庭片、科幻片和奇幻片，它们都具备冲击高票房的潜力。恐怖片和纪录片不仅制作成本小而且风险最低，在投资回报上也是最有保证的。不过基于电影市场的发展趋势，制片商更应该关注电影类型的有机融合和注重原创内容的打造。通过建立线性回归模型，本研究进一步发现，电影成本对票房影响最大，电影的网络热度次之，评分影响最低。最后，根据研究结论，本文提出了一系列有助于票房增长的建议。
 		</div>
 
 		<div id="myTabs">
 
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">一、票房前十的电影</a></li>
+				<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">一、研究问题</a></li>
 				<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">二、电影票房收入影响因素的理论及实证分析</a></li>
 				<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">三、结论与建议</a></li>
 			</ul>
@@ -42,7 +44,10 @@
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="home" style="padding-bottom: 15px;border-bottom: 2px solid gray;">
-					<div style="text-align:left;line-height:50px;width:100%;font-size:24px;font-family:方正清刻本悦宋简体">一、票房前十的电影</div>
+					<div style="text-align:left;line-height:80px;width:100%;font-size:30px;font-family:方正宋刻本秀楷简体;font-weight:bolder">一、研究问题</div>
+					<div style="text-align:left;line-height:10px;width:100%;margin:10px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">（一）核心问题及变量解释 </div>
+					<img src="图0  研究问题及变量解释.jpg" width="1000px" >
+					<div style="text-align:left;line-height:20px;width:100%;margin:10px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">（二）哪些电影票房最高？ </div>
 					<!--bar chart-->
 					<div id="top10" style="width: 100%;height:300px;"></div>
 
@@ -53,7 +58,9 @@
 						// 指定图表的配置项和数据
 						option = {
 							grid: {
-								
+								top: 40,
+								left: 90,
+								right: 50,
 								bottom: '10%'
 							},
     						tooltip: {
@@ -90,14 +97,15 @@
 						myChart.setOption(option);
 					</script>
 
-					<div style="text-align:center;line-height:25px;width:100%;margin:10px 0;font-family:KaiTi;font-size:16px">图1 票房前十的电影</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">在这5000部电影中，票房收入最高的是Avatar（2787965087美元），其次是Titanic（1845034188美元），与排名第一的阿凡达相差9亿美元左右的票房，排名第十的是Captain America：Civil War（1153304495美元），与排名第一的阿凡达相差16亿美元左右的票房。</div>
+					<div style="text-align:center;line-height:25px;width:100%;margin:10px 0;font-family:KaiTi;font-size:18px;font-weight:bold">图1 票房前十的电影</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">在这5000部电影中，票房收入最高的是Avatar（2787965087美元），其次是Titanic（1845034188美元），与排名第一的阿凡达相差9亿美元左右的票房，排名第十的是Captain America：Civil War（1153304495美元），与排名第一的阿凡达相差16亿美元左右的票房。</div>
 
 				</div>
 				<div role="tabpanel" class="tab-pane" id="profile" style="padding-bottom: 15px;border-bottom: 2px solid gray;">
-					<div style="text-align:left;line-height:50px;width:100%;font-size:24px;font-family: 方正清刻本悦宋简体">二、电影票房收入影响因素的理论及实证分析</div>
+					<div style="text-align:left;line-height:80px;width:100%;font-size:30px;font-family: 方正宋刻本秀楷简体;font-weight:900">二、电影票房收入影响因素的理论及实证分析</div>
 
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:22px;font-family: 方正清刻本悦宋简体">（一）时间方面 </div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">（一）经济环境方面 </div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:25px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">Q：电影产业前景如何？ </div>
 					<div style="width:100%;">
 						<div id="bar1" style="height:300px;width:333px;float:left;"></div>
 						<div id="bar2" style="height:300px;width:333px;float: left;"></div>
@@ -113,6 +121,9 @@
 							},
 							grid: {
 								width: '75%',
+								top:40,
+								left: 40,
+								right: 40,
 								bottom: '10%'
 							},
 							xAxis: {
@@ -143,8 +154,10 @@
 							},
 							grid: {
 								width: '55%',
+								top:40,
+								left: 100,
+								right: 0,
 								bottom: '10%',
-								left: 100
 							},
 							xAxis: {
 								type: 'category',
@@ -153,7 +166,7 @@
 							},
 							yAxis: {
 								type: 'value',
-								name: '收入总数（美元）'
+								name: '总收入（美元）'
 							},
 							series: [{
 								data: [8394751, 22000000, 650422, 4358000, 8000000, 25, 4481000, 4500000, 3202000, 11236000, 184925486, 11433101, 443531426, 182792000, 6000000, 277909650, 12255000, 27132000, 53694124, 7800000, 11968000, 13200000, 8000000, 49000000, 51200000, 80000000, 53071841, 7000000, 33800000, 34300000, 17570324, 50000000, 67400000, 74456822, 210075231, 285843236, 347014460, 554756513, 59350000, 127792338, 187554477, 314385854, 248016789, 296241798, 291382701, 959589632, 386167174, 654497570, 298333870, 1460158920, 959516811, 989752891, 1290982451, 1314928566, 1852238694, 1573451743, 1753708180, 1498825345, 1501892986, 1557331169, 1933137768, 2686871601, 3863771854, 2664107492, 3756905404, 3881952707, 5928752504, 6207143123, 6808007511, 9634746300, 8223101034, 10332740909, 10952218337, 13269869789, 14609857556, 14213319458, 16278686567, 14931589218, 16635892750, 16491621655, 18146479803, 21072651506, 20348574768, 20516921160, 24141710246, 23411493295, 24120490589, 22775024221, 14461156948, 0],
@@ -174,8 +187,10 @@
 							},
 							grid: {
 								width: '55%',
-								bottom: '10%',
-								left: 100
+								top:40,
+								left: 100,
+								right: 40,
+								bottom: '10%'
 							},
 							xAxis: {
 								type: 'category',
@@ -184,7 +199,7 @@
 							},
 							yAxis: {
 								type: 'value',
-								name: '票房总数（美元）'
+								name: '总票房（美元）'
 							},
 							series: [{
 								data:[8394751, 22000000, 650422, 4358000, 8000000, 25, 4481000, 4500000, 3202000, 11236000, 184925486, 11433101, 443531426, 182792000, 6000000, 277909650, 12255000, 27132000, 53694124, 7800000, 11968000, 13200000, 8000000, 49000000, 51200000, 80000000, 53071841, 7000000, 33800000, 34300000, 17570324, 50000000, 67400000, 74456822, 210075231, 285843236, 347014460, 554756513, 59350000, 127792338, 187554477, 314385854, 248016789, 296241798, 291382701, 959589632, 386167174, 654497570, 298333870, 1460158920, 959516811, 989752891, 1290982451, 1314928566, 1852238694, 1573451743, 1753708180, 1498825345, 1501892986, 1557331169, 1933137768, 2686871601, 3863771854, 2664107492, 3756905404, 3881952707, 5928752504, 6207143123, 6808007511, 9634746300, 8223101034, 10332740909, 10952218337, 13269869789, 14609857556, 14213319458, 16278686567, 14931589218, 16635892750, 16491621655, 18146479803, 21072651506, 20348574768, 20516921160, 24141710246, 23411493295, 24120490589, 22775024221, 14461156948, 0],
@@ -195,25 +210,33 @@
 						
 						myChart.setOption(option);
 					</script>
-					<div style="text-align:center;line-height:20px;width:1000px;float:left;font-family:KaiTi;font-size:16px">图2 每年发行的电影数量 & 图3 每年票房统计 & 图4 每年电影数量与票房统计</div>
-
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:22px;">&emsp;</div>
+					<div style="text-align:center;line-height:20px;width:1000px;float:left;font-family:KaiTi;font-size:18px;font-weight:bold">图2 每年发行的电影数量 & 图3 每年票房统计 & 图4 每年电影数量与票房统计</div>
+					<div style="text-align:left;line-height:5px;width:100%;margin:5px 0;font-size:22px;">&emsp;</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">20世纪90现代以来，以信息技术革命为中心的高新技术迅猛发展，全球贸易往来不断扩大，经济全球化趋势愈发明显，电影作为工业、科技与艺术的融合表现形式，极大程度受到世界整体经济环境的影响。与此同时，90代互联网在西方世界的普及也推动了电影行业的发展。这一点，从图2、图3和图4中可以明显地看出，从1990年开始，电影行业出现爆炸式增长。</div>
 					<div style="width:100%;">
-						<img src="图5  每年票房统计_通货膨胀调整后.png" width="240px">
-						<img src="图6  票房增长率（1）.png" width="240px">
-						<img src="图6  票房增长率（2）.png" width="240px">
-						<img src="图6  票房增长率（2）.png" width="240px">
+						<img src="图5  每年票房统计_通货膨胀调整后.png" width="1000px">
 					</div>
 					<div style="width: 100%;">
-						<div style="text-align:center;line-height:25px;width:100%;float:left;font-family:KaiTi;font-size:16px">图5  每年票房统计_通货膨胀调整后 & 图6  票房增长率</div>
+						<div style="text-align:center;line-height:25px;width:100%;float:left;font-family:KaiTi;font-size:18px;font-weight:bold">图5  每年票房统计_通货膨胀调整后</div>
 					</div>
-
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:22px;">&emsp;</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">20世纪90现代以来，以信息技术革命为中心的高新技术迅猛发展，全球贸易往来不断扩大，经济全球化趋势愈发明显，电影作为工业、科技与艺术的融合表现形式，极大程度受到世界整体经济环境的影响。与此同时，90代互联网在西方世界的普及也推动了电影行业的发展。这一点，从图2、图3和图4中可以明显地看出，从1990年开始，电影行业出现爆炸式增长。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">考虑到通货膨胀因素，抓取1990年以来的票房数据进行折算，如图5，通胀调整后的电影票房虽然存在波动，但电影行业总票房仍保持着高票房的水平。一元线性回归方程R²达0.7523，说明模型拟合度较好，趋势线表明今后电影票房还将会继续呈现上升的趋势。再将1990-2015年每年票房细分为三个阶段（1990~1998年、1999~2007年、2008~2015年），如图6，会发现增长率不断减小，说明电影市场在不断成熟，需求渐趋于饱和。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">因此，虽然全球化和互联网的高速发展为电影行业提供了良好的经济环境，但伴随着观众审美的提高和竞争激烈程度的增加，影片想要增加成功的概率，不仅要抓住当下的机遇，更重要的是注重优质内容的打造。</div>
+					<div style="text-align:left;line-height:5px;width:100%;margin:5px 0;font-size:22px;">&emsp;</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">考虑到通货膨胀因素，抓取1990年以来的票房数据进行折算，如图5，通胀调整后的电影票房虽然存在波动，但电影行业总票房仍保持着高票房的水平。一元线性回归方程R²达0.7523，说明模型拟合度较好，趋势线表明今后电影票房还将会继续呈现上升的趋势。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:5px 0;font-size:15px;">&emsp;</div>
+					<div style="width:100%;">
+						<img src="图6  票房增长率（1）.png" width="330px">
+						<img src="图6  票房增长率（2）.png" width="330px">
+						<img src="图6  票房增长率（3）.png" width="330px">
+					</div>
+					<div style="width: 100%;">
+						<div style="text-align:center;line-height:25px;width:100%;float:left;font-family:KaiTi;font-size:18px;font-weight:bold">图6  票房增长率</div>
+					</div>
+					<div style="text-align:left;line-height:5px;width:100%;margin:5px 0;font-size:22px;">&emsp;</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">再将1990-2015年每年票房细分为三个阶段（1990~1998年、1999~2007年、2008~2015年），如图6，会发现增长率不断减小，说明电影市场在不断成熟，需求渐趋于饱和。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">因此，虽然全球化和互联网的高速发展为电影行业提供了良好的经济环境，但伴随着观众审美的提高和竞争激烈程度的增加，影片想要增加成功的概率，不仅要抓住当下的机遇，更重要的是注重优质内容的打造。</div>
 					
 					<br />
+					<div style="text-align:left;line-height:25px;width:100%;margin:25px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">（二）档期方面 </div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:25px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">Q：黄金档期能否保障高票房？ </div>
 					<div style="width:100%;">
 						<div id="bar4" style="height:300px;width:500px;float:left;"></div>
 						<div id="bar5" style="height:300px;width:500px;float:right"></div>
@@ -233,7 +256,9 @@
 							grid: {
 								width: '70%',
 								bottom: '10%',
-								left: '15%'
+								top:30,
+								right:'30%',
+								left: '12%'
 							},
 							xAxis: [
 								{
@@ -275,6 +300,8 @@
 							grid: {
 								width: '70%',
 								bottom: '10%',
+								top:30,
+								right:'30%',
 								left: '20%'
 							},
 							xAxis: [
@@ -304,7 +331,7 @@
 						myChart.setOption(option);
 					</script>
 					
-					<div style="text-align:center;line-height:25px;width:1000px;float:left;font-family:KaiTi;font-size:16px">图7 每月上映电影数量统计 & 图8 每月票房统计</div>
+					<div style="text-align:center;line-height:25px;width:1000px;float:left;font-family:KaiTi;font-size:18px;font-weight:bold">图7 每月上映电影数量统计 & 图8 每月票房统计</div>
 
 					<div id="bar6" style="height:350px;width:1000px;float:left;"></div>
 				
@@ -324,7 +351,8 @@
 							grid: {
 								left: '3%',
 								right: '4%',
-								bottom: '3%',
+								bottom: '0%',
+								top:20,
 								containLabel: true
 							},
 							xAxis: {
@@ -353,17 +381,19 @@
 						myChart.setOption(option);
 					</script>
 
-					<div style="text-align:center;line-height:25px;width:1000px;float:left;font-family:KaiTi;font-size:16px">图9 各月平均每部电影所得票房与制作成本</div>
-
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:22px;">&emsp;</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">根据统计，在5000部影片中，各国影片数量排名前五的分别是：美国67.01%，英国8.08%，加拿大4.75%，德国4.32%，法国3.76%。五个国家影片数量总和占总数的87.92%，表明图表中的数据主要受到这五个国家影片的影响，其中影响最大的是美国电影。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">这五个国家都地处北半球，北半球的冬季通常是12月至2月，夏季通常是6月至8月。拿具有代表性的美国电影来具体分析，美国电影市场一般分为五个档期：冬季档、春季档、夏季档、秋季档和岁末假日档。其中，以夏季档和岁末假日档最为重要。作为最火爆的电影档期，夏季档将会持续近四个月，从5月第一个星期五开始直到9月第一个星期一，是全年票房收入最高的档期。从图9中可以看出，6月份、5月份、7月份平均每部电影的票房在12个月中分别排名第一、第二和第四。6月份的电影总票房更是高居第一，达592亿美元。据研究显示，美国最卖座影片和真正产生轰动效应的影片票房主要来自于7岁至13岁的少年儿童或14到25岁的青少年观众。同时，5月和6月以家庭片和特效大片为主，7月以后成人，惊悚片、动作片和喜剧类型的影片会增多。这就解释了两点内容：一是暑期档之所以能超越其他档期成为黄金档期，是因为这部分消费群体在暑期才会有较多的闲暇时间。二是同样身处暑期档的5-8月，为何在票房上存在明显区别。因为少年儿童和青少年观众作为暑期档票房的主要贡献者，这一消费群体会更倾向于家庭片和特效大片这种类型的影片，所以在这一期间，播放该类型影片的月份的票房自然也要更胜于其他月份。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">此外，岁末假日档也是十分受影片发行商欢迎的，从11月中下旬开始到1月初左右，岁末假日档包括了像感恩节、复活节、圣诞节这样的大型节日，无疑也是电影上映的黄金档期，所以，11月份、12月份平均每部电影的票房在12个月中也能分别排名第三和第五。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">秋季档的划分一般是从学生开学至感恩节前一周。秋季档虽然是不太受发行商偏爱的电影市场淡季，但9月份之所以还能在影片上映数量上拥有远高于其他月份的成绩，很大原因是因为夏季档发行的大片导致其他低成本制作或者代为发行的独立制作影片为避免激烈的市场竞争，以谋求更大的商业收益，只能将档期定为暑假过后的秋季。从图9中可以清楚得看出，各月平均每部电影所得票房和各月平均每部电影制作成本成正相关。6月、5月、11月上映的电影相较于其他月份的影片，制作成本都相对较高，因此这三个月在票房收入上也是要远高于9月、1月、10月等电影制作成本较低的月份。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">因此，结合分析能发现，电影档期对票房收入也是存在着不小的影响的。其实，发行档期也是电影市场运作机制的一部分，其主要目的是通过营销来为影片造势，以吸引更多的观众。但并不是所有的电影都适合那些天生具备庞大的观影人次和强劲集中观影消费需求的档期，依据电影本身的类型瞄准某个档期，才能更有效地为电影的成功助力。</div>
+					<div style="text-align:center;line-height:55px;width:1000px;float:left;font-family:KaiTi;font-size:18px;font-weight:bold">图9 各月平均每部电影所得票房与制作成本</div>
+					
+					
+					<div style="text-align:left;line-height:5px;width:100%;margin:0px 0;font-size:22px;">&emsp;</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">根据统计，在5000部影片中，各国影片数量排名前五的分别是：美国67.01%，英国8.08%，加拿大4.75%，德国4.32%，法国3.76%。五个国家影片数量总和占总数的87.92%，表明图表中的数据主要受到这五个国家影片的影响，其中影响最大的是美国电影。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">这五个国家都地处北半球，北半球的冬季通常是12月至2月，夏季通常是6月至8月。拿具有代表性的美国电影来具体分析，美国电影市场一般分为五个档期：冬季档、春季档、夏季档、秋季档和岁末假日档。其中，以夏季档和岁末假日档最为重要。作为最火爆的电影档期，夏季档将会持续近四个月，从5月第一个星期五开始直到9月第一个星期一，是全年票房收入最高的档期。从图9中可以看出，6月份、5月份、7月份平均每部电影的票房在12个月中分别排名第一、第二和第四。6月份的电影总票房更是高居第一，达592亿美元。据研究显示，美国最卖座影片和真正产生轰动效应的影片票房主要来自于7岁至13岁的少年儿童或14到25岁的青少年观众。同时，5月和6月以家庭片和特效大片为主，7月以后成人，惊悚片、动作片和喜剧类型的影片会增多。这就解释了两点内容：一是暑期档之所以能超越其他档期成为黄金档期，是因为这部分消费群体在暑期才会有较多的闲暇时间。二是同样身处暑期档的5-8月，为何在票房上存在明显区别。因为少年儿童和青少年观众作为暑期档票房的主要贡献者，这一消费群体会更倾向于家庭片和特效大片这种类型的影片，所以在这一期间，播放该类型影片的月份的票房自然也要更胜于其他月份。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">此外，岁末假日档也是十分受影片发行商欢迎的，从11月中下旬开始到1月初左右，岁末假日档包括了像感恩节、复活节、圣诞节这样的大型节日，无疑也是电影上映的黄金档期，所以，11月份、12月份平均每部电影的票房在12个月中也能分别排名第三和第五。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">秋季档的划分一般是从学生开学至感恩节前一周。秋季档虽然是不太受发行商偏爱的电影市场淡季，但9月份之所以还能在影片上映数量上拥有远高于其他月份的成绩，很大原因是因为夏季档发行的大片导致其他低成本制作或者代为发行的独立制作影片为避免激烈的市场竞争，以谋求更大的商业收益，只能将档期定为暑假过后的秋季。从图9中可以清楚得看出，各月平均每部电影所得票房和各月平均每部电影制作成本成正相关。6月、5月、11月上映的电影相较于其他月份的影片，制作成本都相对较高，因此这三个月在票房收入上也是要远高于9月、1月、10月等电影制作成本较低的月份。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">因此，结合分析能发现，电影档期对票房收入也是存在着不小的影响的。其实，发行档期也是电影市场运作机制的一部分，其主要目的是通过营销来为影片造势，以吸引更多的观众。但并不是所有的电影都适合那些天生具备庞大的观影人次和强劲集中观影消费需求的档期，依据电影本身的类型瞄准某个档期，才能更有效地为电影的成功助力。</div>
 					
 					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:22px;">&emsp;</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:20px 0;font-size:22px;font-family: 方正清刻本悦宋简体">（二）类型方面 </div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:20px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">（三）类型方面 </div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:25px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">Q：电影类型发展趋势？ </div>
 					<div id="bar10" style="height:450px;width:1000px;"></div>
 					<script type="text/javascript">
 						var myChart = echarts.init(document.getElementById('bar10'));
@@ -409,7 +439,7 @@
 								{
 									name:'影片类型',
 									type:'pie',
-									radius: ['40%', '55%'],
+									radius: ['40%', '75%'],
 									label: {
 										normal: {
 											formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
@@ -469,9 +499,9 @@
 						
 						myChart.setOption(option);
 					</script>
-					<div style="text-align:center;line-height:25px;width:100%;margin:10px 0;font-family:KaiTi;font-size:16px">图10 电影类型分布</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">随着电影的发展，电影各类型之间的界限愈发模糊，很多电影已经无法用传统的类型来定义，所以本文的类型概念只是针对含有相同构成元素的电影而言。就当代好莱坞电影类型分类方法而言，并无统一确定的分类方法。本文按照较为常见的分类方法，即以形式、情绪和场景三个维度来确定一部电影的类型，将5000部电影分为共18种类型。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">根据统计，按照情绪的不同，排名前十的类型分别是剧情片18.89%，喜剧片14.16%，惊悚片10.48%，动作片9.49%，爱情片7.35%，冒险片6.5%，恐怖片4.27%，家庭片4.22%，奇幻片3.49%，悬疑片2.86%；按照场景的不同，排名前五的是犯罪片5.72%，科幻片4.4%，历史片1.62%，战争片1.18%，西部片0.67%；按照形式的不同，排名前三的是动画片1.92%，音乐片1.52%，纪录片0.91%。（注：由于存在跨类型影片，一部影片可能包含多种类型，故统计的为各类型出现的次数。）可以看出，票房市场中主要的电影类型是剧情片和喜剧片，数量较少的是纪录片和西部片。</div>
+					<div style="text-align:center;line-height:25px;width:100%;margin:10px 0;font-family:KaiTi;font-size:18px;font-weight:bold">图10 电影类型分布</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">随着电影的发展，电影各类型之间的界限愈发模糊，很多电影已经无法用传统的类型来定义，所以本文的类型概念只是针对含有相同构成元素的电影而言。就当代好莱坞电影类型分类方法而言，并无统一确定的分类方法。本文按照较为常见的分类方法，即以形式、情绪和场景三个维度来确定一部电影的类型，将5000部电影分为共18种类型。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">根据统计，按照情绪的不同，排名前十的类型分别是剧情片18.89%，喜剧片14.16%，惊悚片10.48%，动作片9.49%，爱情片7.35%，冒险片6.5%，恐怖片4.27%，家庭片4.22%，奇幻片3.49%，悬疑片2.86%；按照场景的不同，排名前五的是犯罪片5.72%，科幻片4.4%，历史片1.62%，战争片1.18%，西部片0.67%；按照形式的不同，排名前三的是动画片1.92%，音乐片1.52%，纪录片0.91%。（注：由于存在跨类型影片，一部影片可能包含多种类型，故统计的为各类型出现的次数。）可以看出，票房市场中主要的电影类型是剧情片和喜剧片，数量较少的是纪录片和西部片。</div>
 					
 					<div style="text-align:left;line-height:15px;width:100%;margin:10px 0;font-size:22px;">&emsp;</div>
 					<div id="bar11" style="height:330px;width:1000px;"></div>
@@ -498,6 +528,8 @@
 								calculable : true,
 								grid: {
 									top: 60,
+									left: 24,
+								    right: 40,
 									bottom: 80,
 									tooltip: {
 										trigger: 'axis',
@@ -523,7 +555,7 @@
 											'Action','Crime','War','Western','Family'
 										],
 										splitLine: {show: false},
-										name: '电影类型'
+										name: '类型'
 									}
 								],
 								yAxis: [
@@ -733,8 +765,9 @@
 						
 						myChart.setOption(option);
 					</script>
-					<div style="text-align:center;line-height:25px;width:100%;margin:10px 0;font-family:KaiTi;font-size:16px">图11 电影类型变化趋势（1916-2016）</div>
-
+					<div style="text-align:center;line-height:25px;width:100%;margin:10px 0;font-family:KaiTi;font-size:18px;font-weight:bold">图11 电影类型变化趋势（1916-2016）</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">从图11可以看出电影类型变化趋势，剧情片是最先发展，也是发展势头最为强劲的影片类型。因为剧情片制作成本不高，可以与其他类型影片任意匹配，成为样式丰富、题材广泛、具有新意而又富有根基的作品。直到19世纪80年代，其他类型电影才开始发展起来。</div>
+					
 					<!-- <div style="text-align:left;line-height:20px;width:100%;margin:8px 0;font-size:22px;">&emsp;</div> -->
 					<div id="bar12" style="height:450px;width:1000px;"></div>
 					<script type="text/javascript">
@@ -752,8 +785,9 @@
 								data:['','','','','']
 							},
 							grid: {
-								left: '3%',
-								right: '4%',
+								top:'8%',
+								left: '0%',
+								right: '2%',
 								bottom: '3%',
 								containLabel: true
 							},
@@ -873,9 +907,10 @@
 						
 						myChart.setOption(option);
 					</script>
-					<div style="text-align:center;line-height:25px;width:100%;margin:10px 0;font-family:KaiTi;font-size:16px">图12 电影类型变化趋势（1990-2016）</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">从图11可以看出电影类型变化趋势，剧情片是最先发展，也是发展势头最为强劲的影片类型。因为剧情片制作成本不高，可以与其他类型影片任意匹配，成为样式丰富、题材广泛、具有新意而又富有根基的作品。直到19世纪80年代，其他类型电影才开始发展起来。提取1990-2016年的变化趋势（图12），可以更清晰地观察到，2010年开始，喜剧才和除剧情片外的其他影片类型拉开差距，更有追上剧情片的趋势。除此之外，随着科技水平的提高，动作片、冒险片、科幻片的数量也开始快速增长。而恐怖片却一直不温不火，音乐片、西部片和历史片这三种传统类型在电影票房市场上的影响力日渐式微。至于传统的爱情片，在票房市场中的占比也逐渐减少，因为爱情故事可以与其他类型相融合，这是类型融合对传统类型的消解，也是如今新兴电影类型发展的表现。</div>
+					<div style="text-align:center;line-height:25px;width:100%;margin:10px 0;font-family:KaiTi;font-size:18px;font-weight:bold">图12 电影类型变化趋势（1990-2016）</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">提取1990-2016年的变化趋势（图12），可以更清晰地观察到，2010年开始，喜剧才和除剧情片外的其他影片类型拉开差距，更有追上剧情片的趋势。除此之外，随着科技水平的提高，动作片、冒险片、科幻片的数量也开始快速增长。而恐怖片却一直不温不火，音乐片、西部片和历史片这三种传统类型在电影票房市场上的影响力日渐式微。至于传统的爱情片，在票房市场中的占比也逐渐减少，因为爱情故事可以与其他类型相融合，这是类型融合对传统类型的消解，也是如今新兴电影类型发展的表现。</div>
 
+					<div style="text-align:left;line-height:25px;width:100%;margin:35px 0;font-size:22px;font-family: 方正宋刻本秀楷简体;font-weight:bold">Q：哪种电影类型投资风险最低？ &  哪种电影类型最具市场潜力？  </div>
 					<div id="bar13" style="height:300px;width:1000px;float:left;"></div>
 					<script type="text/javascript">
 						var myChart = echarts.init(document.getElementById('bar13'));
@@ -893,8 +928,9 @@
 								}
 							},
 							grid: {
-								left: '3%',
+								left: '1%',
 								right: '10%',
+								top:30,
 								bottom: '3%',
 								containLabel: true
 							},
@@ -932,7 +968,7 @@
 						
 						myChart.setOption(option);
 					</script>
-					<div style="text-align:center;line-height:25px;width:1000px;float:left;font-family:KaiTi;font-size:16px">图13 单片投资回报率</div>
+					<div style="text-align:center;line-height:25px;width:1000px;float:left;font-family:KaiTi;font-size:18px;font-weight:bold">图13 单片投资回报率</div>
 
 					<div id="bar14" style="height:400px;width:1000px;float: left;"></div>
 					<script type="text/javascript">
@@ -957,6 +993,9 @@
 								}
 							},
 							grid: {
+								top:60,
+								right:'10%',
+								left: '10%',
 								bottom: '10%'
 							},
 							legend: {
@@ -986,8 +1025,8 @@
 									type: 'value',
 									name: '投资回报率',
 									min: 0,
-									max: 400,
-									interval: 50,
+									max: 600,
+									interval: 60,
 									axisLabel: {
 										formatter: '{value} %'
 									}
@@ -1033,16 +1072,18 @@
 						
 						myChart.setOption(option);
 					</script>
-					<div style="text-align:center;line-height:25px;width:1000px;margin:10px 0;float:left;font-family:KaiTi;font-size:16px">图14 平均票房各类型排名&整体投资回报率</div>
-				
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">对于商业电影来说，最终的目的是实现收益，因此探究各类型的投资回报率高低，对电影的成功有着很重要的意义。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">恐怖片的票房虽然不如人意，但一般恐怖片都是中低成本制作，因此投资回报率还是比较高的。例如在5000部电影中，单片投资回报率最高的就是2009年的好莱坞恐怖片《灵动：鬼影实录》，它的制作费仅仅只有1.5万美元，但全球总票房却高达1.9亿美元，对于像恐怖片、惊悚片、犯罪片等存在“天花板”类型的影片来说，1.9亿美元的票房是非常令人瞩目的成就了。单片投资回报率排名前十中，恐怖片占比50%，第一第二名都被其包揽，而且要远高于第三名。但是像《灵动：鬼影实录》这样能获得如此高投资回报率的片子实在是少之又少，结合《灵动：鬼影实录》与其他影片之间的巨大差距和图13中排名第三至第十的影片之间的细微差距就可以看出，恐怖片的成功存在很大的偶然性。此外，单片投资回报率较高的还有剧情片（第三）和纪录片（第五）。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">虽然纪录片的单片投资率只有排名第五，但却是整体投资回报率最高的影片类型。恐怖片紧随其后，排名第二。纪录片之所以能在整体上获得最高的投资回报率，是因为纪录片是一种品质较稳定、有固定消费群体的电影类型，而且纪录片投资拍摄数量有限，质量相对精良，选题也较能契合社会热点。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">据图10显示，剧情片、喜剧片和动作片类型在总数排名中位列前四，但他们的投资回报率却并不高。在单片投资回报率排名前十的类型中，更是没有看到惊悚片和动作片的身影。虽然喜剧片和剧情片的受众广泛，剧情片也有个别成功的影片，但总体来说，整体投资回报率不高，存在一定的市场风险。此外，动作片的投资回报率也没有很高，因为随着动画片、科幻片和奇幻片等同样在视觉效果上不逊于动作片的影片类型的出现和发展，动作片失去了原有的竞争优势。加之观众阈值提高，对动作难度的期待值不断加大，制作成本水涨船高，高额的成本使投资回报率不断降低。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">此外，从1916年至2016年的一个世纪中，平均票房前五名的影片类型分别为动画、冒险、家庭、科幻和奇幻。这五种电影类型也是最具市场潜力的，因为在这五种类型中，动画、冒险、科幻和奇幻都对制作有着很高的要求，而且这四种类型也是最能通过视觉来吸引观众的。除此之外，这五种类型的影片是最适合全家一同观看的，尤其是家庭片。像犯罪片、惊悚片、恐怖片会流失部分年轻、女性和老年观众，爱情片和喜剧片则会流失部分男性观众。而之所以动作片的排名不佳，也是因为动画片、冒险片、科幻片和奇幻片中往往会带有动作的成分，因此单纯的动作片在票房上要稍加逊色。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">因此，要想电影成功，影片类型的选择在制作环节中也是不可忽视的。剧情片虽然整体回报率不突出，但近年来的数量增长很快，说明市场是需要这种类型的电影的。但剧情片对剧本依赖性很大，剧本强的剧情片可以在单片投资回报率前十的排行榜上占有一席之地，摘得奖项，赢得口碑，剧本弱的剧情片则很有可能票房垫底，甚至亏损。喜剧的情况也类似于剧情片，但要稍逊一筹。动作片和爱情片一样，是偏向于传统类型的影片，如今的电影市场上，动作和爱情故事都可以作为单独的元素穿插于其他类型的影片中，因此对于单纯的动作片和爱情片来说，收获高票房的难度也越来越大。根据分析，市场上最有潜力的是这五种类型：动画片、冒险片、家庭片、科幻片和奇幻片，都具备冲击高票房的潜力，尤其是家庭片、动画片和科幻片，整体投资回报率也很不错。对于小成本预算的投资方、制片方来说，除去制作成本相对较低的喜剧片和剧情片以外，恐怖片和纪录片也是不错的选择。这两种类型的影片虽然很难获得高票房，但它们风险最小，在投资回报上也是最有保证的。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">但总的来说，在如今的电影市场上，各种类型的融合已经是大势所趋，以某一类型为主，其他类型为辅的融类型影片将会是更受观众追捧的作品。撷不同类型的长处，进行有机、和谐的融合，才能使影片更成功。</div>
+					<div style="text-align:center;line-height:25px;width:1000px;margin:10px 0;float:left;font-family:KaiTi;font-size:18px;font-weight:bold">图14 整体投资回报率&平均票房各类型排名</div>
+					
+					<div style="text-align:left;line-height:5px;width:100%;margin:10px 0;font-size:22px;">&emsp;</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">对于商业电影来说，最终的目的是实现收益，因此探究各类型的投资回报率高低，对电影的成功有着很重要的意义。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">恐怖片的票房虽然不如人意，但一般恐怖片都是中低成本制作，因此投资回报率还是比较高的。例如在5000部电影中，单片投资回报率最高的就是2009年的好莱坞恐怖片《灵动：鬼影实录》，它的制作费仅仅只有1.5万美元，但全球总票房却高达1.9亿美元，对于像恐怖片、惊悚片、犯罪片等存在“天花板”类型的影片来说，1.9亿美元的票房是非常令人瞩目的成就了。单片投资回报率排名前十中，恐怖片占比50%，第一第二名都被其包揽，而且要远高于第三名。但是像《灵动：鬼影实录》这样能获得如此高投资回报率的片子实在是少之又少，结合《灵动：鬼影实录》与其他影片之间的巨大差距和图13中排名第三至第十的影片之间的细微差距就可以看出，恐怖片的成功存在很大的偶然性。此外，单片投资回报率较高的还有剧情片（第三）和纪录片（第五）。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">虽然纪录片的单片投资率只有排名第五，但却是整体投资回报率最高的影片类型。恐怖片紧随其后，排名第二。纪录片之所以能在整体上获得最高的投资回报率，是因为纪录片是一种品质较稳定、有固定消费群体的电影类型，而且纪录片投资拍摄数量有限，质量相对精良，选题也较能契合社会热点。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">据图10显示，剧情片、喜剧片和动作片类型在总数排名中位列前四，但他们的投资回报率却并不高。在单片投资回报率排名前十的类型中，更是没有看到惊悚片和动作片的身影。虽然喜剧片和剧情片的受众广泛，剧情片也有个别成功的影片，但总体来说，整体投资回报率不高，存在一定的市场风险。此外，动作片的投资回报率也没有很高，因为随着动画片、科幻片和奇幻片等同样在视觉效果上不逊于动作片的影片类型的出现和发展，动作片失去了原有的竞争优势。加之观众阈值提高，对动作难度的期待值不断加大，制作成本水涨船高，高额的成本使投资回报率不断降低。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">此外，从1916年至2016年的一个世纪中，平均票房前五名的影片类型分别为动画、冒险、家庭、科幻和奇幻。这五种电影类型也是最具市场潜力的，因为在这五种类型中，动画、冒险、科幻和奇幻都对制作有着很高的要求，而且这四种类型也是最能通过视觉来吸引观众的。除此之外，这五种类型的影片是最适合全家一同观看的，尤其是家庭片。像犯罪片、惊悚片、恐怖片会流失部分年轻、女性和老年观众，爱情片和喜剧片则会流失部分男性观众。而之所以动作片的排名不佳，也是因为动画片、冒险片、科幻片和奇幻片中往往会带有动作的成分，因此单纯的动作片在票房上要稍加逊色。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">因此，要想电影成功，影片类型的选择在制作环节中也是不可忽视的。剧情片虽然整体回报率不突出，但近年来的数量增长很快，说明市场是需要这种类型的电影的。但剧情片对剧本依赖性很大，剧本强的剧情片可以在单片投资回报率前十的排行榜上占有一席之地，摘得奖项，赢得口碑，剧本弱的剧情片则很有可能票房垫底，甚至亏损。喜剧的情况也类似于剧情片，但要稍逊一筹。动作片和爱情片一样，是偏向于传统类型的影片，如今的电影市场上，动作和爱情故事都可以作为单独的元素穿插于其他类型的影片中，因此对于单纯的动作片和爱情片来说，收获高票房的难度也越来越大。根据分析，市场上最有潜力的是这五种类型：动画片、冒险片、家庭片、科幻片和奇幻片，都具备冲击高票房的潜力，尤其是家庭片、动画片和科幻片，整体投资回报率也很不错。对于小成本预算的投资方、制片方来说，除去制作成本相对较低的喜剧片和剧情片以外，恐怖片和纪录片也是不错的选择。这两种类型的影片虽然很难获得高票房，但它们风险最小，在投资回报上也是最有保证的。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">但总的来说，在如今的电影市场上，各种类型的融合已经是大势所趋，以某一类型为主，其他类型为辅的融类型影片将会是更受观众追捧的作品。撷不同类型的长处，进行有机、和谐的融合，才能使影片更成功。</div>
 
+					<div style="text-align:left;line-height:25px;width:100%;margin:35px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">Q：原创和改编，哪个更受欢迎？ </div>
 					<div style="width:100%;">
 						<div id="bar15" style="height:300px;width:420px;float:left;"></div>
 						<div id="bar16" style="height:300px;width:580px;float: right;"></div>
@@ -1167,15 +1208,32 @@
 					</script>
 
 					<div style="width: 100%;">
-							<div style="text-align:center;line-height:25px;width:420px;float:left;margin-bottom: 10px;font-family:KaiTi;font-size:16px">图15 原创与改编电影数量比</div>
-							<div style="text-align:center;line-height:25px;width:580px;float:left;margin-bottom: 10px;font-family:KaiTi;font-size:16px">图16 原创与改编电影评分比、平均每部电影票房比</div>
+							<div style="text-align:center;line-height:25px;width:420px;float:left;margin-bottom: 20px;font-family:KaiTi;font-size:18px;font-weight:bold">图15 原创与改编电影数量比</div>
+							<div style="text-align:center;line-height:25px;width:580px;float:left;margin-bottom: 20px;font-family:KaiTi;font-size:18px;font-weight:bold">图16 原创与改编电影评分比、平均每部电影票房比</div>
 					</div>
 
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">结合图15和图16可以发现，无论是在数量还是平均每部电影所得票房上，原创电影之于改编电影的优势都是压倒性的，在评分上，原创电影也是高于改编电影。其实改编电影的数量并不多，但由于电影营销者会抓住热点IP卖力宣传，致使IP资源相关内容的宣传力度大大超过其他类型，以至于给观众带来IP资源改编影片数量众多的错觉。虽然在评分上原创电影与改编电影区别不大，但原创电影的平均票房几乎是改编电影的两倍，这说明电影市场对创新的渴求。虽然IP能给改编电影带来部分粉丝和流量，但与此同时，改编电影若不能很好的还原原著的效果，会失去部分反对将作品影视化的原著粉，而且在故事的新颖程度上也会流失部分观众。随着IP泡沫的不断增大，在多次改编后，观众审美疲劳后带来的就是票房的下滑。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">因此，在观众“影商”不断提高的当下，想要通过简单改编来赢得票房已不再那么容易，在创作剧本和计划投拍电影之前，一定要确定故事情节、漫画内容的类型适合通过电影来体现。但最主要的还是要创新，通过打磨更好的故事来获取观众的青睐。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">结合图15和图16可以发现，无论是在数量还是平均每部电影所得票房上，原创电影之于改编电影的优势都是压倒性的，在评分上，原创电影也是高于改编电影。其实改编电影的数量并不多，但由于电影营销者会抓住热点IP卖力宣传，致使IP资源相关内容的宣传力度大大超过其他类型，以至于给观众带来IP资源改编影片数量众多的错觉。虽然在评分上原创电影与改编电影区别不大，但原创电影的平均票房几乎是改编电影的两倍，这说明电影市场对创新的渴求。虽然IP能给改编电影带来部分粉丝和流量，但与此同时，改编电影若不能很好的还原原著的效果，会失去部分反对将作品影视化的原著粉，而且在故事的新颖程度上也会流失部分观众。随着IP泡沫的不断增大，在多次改编后，观众审美疲劳后带来的就是票房的下滑。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">因此，在观众“影商”不断提高的当下，想要通过简单改编来赢得票房已不再那么容易，在创作剧本和计划投拍电影之前，一定要确定故事情节、漫画内容的类型适合通过电影来体现。但最主要的还是要创新，通过打磨更好的故事来获取观众的青睐。</div>
 
 					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:22px;">&emsp;</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:20px 0;font-size:22px;font-family: 方正清刻本悦宋简体">（三）线性回归模型定量分析成本&网络热度&评分与票房</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:20px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">（四）线性回归模型定量分析成本&网络热度&评分与票房</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">为进一步探究成本、评分与票房的具体关系，本文将通过建立多元线性回归模型来具体分析。</div>
+					
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family:SimHei;font-size:16px;font-weight:bold">1、电影票房影响因素模型建立</div>
+						<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">基于前文的分析，本文认为电影的档期和类型都与票房有关，但不存在固定的哪个档期或者电影类型对票房影响最大，因为不同的电影适合不同的档期与类型，要因“片”制宜。因此，本文不考虑虚拟变量。首先对因变量和自变量两边取对数lg，得到变量lg（revenue）、lg（budget）、lg（popularity）和lg（vote_average）。其中，选取票房revenue作为被解释变量，投资成本budget、影片评分vote_average、网络热度popularity作为被解释变量。将lg（revenue）作为因变量，记为Y，将lg（budget）、lg（popularity）、lg（vote_average）作为自变量，记为X1、X2、X3，建立多元线性回归模型：Y=a+β1X1+β2X2+β3X3。在建立多元线性回归模型过程中，首先导入因变量与自变量，并采用逐步回归的方式进行数据分析与处理。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family:SimHei;font-size:16px;font-weight:bold">2、回归模型实证</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">由回归系数表可以知，共线性检验值VIF均在1-10之间，表明回归模型不存在严重的多重共性。Sig.小于0.001，说明自变量对因变量的影响是显著的。因此，lg（budget）对lg（revenue）具有显著正向影响（Beta=0.438，Sig.=0.000<0.001）；lg（popularity）对lg（revenue）具有显著正向影响（Beta=0.436，Sig.=0.000<0.001）；lg（vote_average）对lg（revenue）具有显著正向影响（Beta=0.063，Sig.=0.000<0.001）。根据Beta值的大小可得出，三者对票房的影响程度从大到小依次是成本Budge、网络热度popularity和评分vote_average。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family:SimHei;font-size:16px;font-weight:bold">3、回归模型检验与修正</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">i回归方程的显著性检验——F检验：</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">各解释变量联合起来对被解释变量有显著的线性关系，并不意味着每一个解释变量分别对被解释变量有显著的线性关系。F检验能用作检验整个回归关系的显著性。由表3方差分析表可以知，回归模型的显著性检验结果F值为1399.38，且在0.000的水平上显著，模型显著性检验通过。说明模型总体存在。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">ii回归方程的拟合优度检验：</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">由分析可知，回归模型的复相关系数R为0.753，决定系数R平方值为0.567，调整的 R 方为0.567，即有56.7%的y能被该模型的预测变量所解释，因此，该模型的拟合度较好。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family:SimHei;font-size:16px;font-weight:bold">4、回归结果与分析</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">根据回归模型的显著性检验与拟合优度检验，结合回归方程系数，最终标准化后回归方程为：
+							Y=0.438X1+0.436X2+0.063X3</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">从回归模型中可以得知，成本、网络热度、评分三个因素对电影票房的影响都是显著的，且这三个因素都与票房呈正相关，其中，成本对票房的影响最大，其次为网络热度，最小的为评分。</div>
+
+					<div style="text-align:left;line-height:25px;width:100%;margin:30px 0;font-size:22px;font-family: 方正宋刻本秀楷简体;font-weight:bold">Q：成本越高票房越高？ </div>
 					<div style="width:100%;">
 						<div id="bar17" style="height:400px;width:500px;float:left;"></div>
 						<div style="height:365px;width:500px;float:right;margin-top: 35px;">
@@ -1183,31 +1241,44 @@
 						</div>
 					</div>
 					<div style="width: 100%;">
-						<div style="text-align:center;line-height:20px;width:500px;float:left;font-family:KaiTi;font-size:16px">图17 电影成本与票房</div>
-						<div style="text-align:center;line-height:20px;width:500px;float:right;font-family:KaiTi;font-size:16px">图18 成本与票房回归图</div>	
+						<div style="text-align:center;line-height:20px;width:500px;float:left;font-family:KaiTi;font-size:18px;font-weight:bold">图17 电影成本与票房</div>
+						<div style="text-align:center;line-height:20px;width:500px;float:right;font-family:KaiTi;font-size:18px;font-weight:bold">图18 成本与票房回归图</div>	
 					</div>
-
+					<div style="text-align:left;line-height:5px;width:100%;margin:10px 0;font-size:22px;">&emsp;</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">电影的成本几乎影响了电影的整个生产过程，从前期的准备，中期的制作，到后期的宣传发行，都受到成本的牵制，而票房本身就与制作各垂直环节密切相关。所以也正如预想的，成本对票房的影响是很大的。但是成本与票房不存在正比关系，并不是成本越高，票房就越高。</div>
+					
+					<div style="text-align:left;line-height:5px;width:100%;margin:10px 0;font-size:22px;">&emsp;</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:20px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">Q：互联网时代，网络热度对票房影响力有多大？ </div>
 					<div style="width:100%;">
 						<div id="bar18" style="height:400px;width:500px;float:left;"></div>
 						<div style="height:365px;width:500px;float:right;margin-top: 35px;">
 								<img src="图21  网络热度与票房回归图.png" width="450px">
 						</div>
 					</div>
-					<div style="width: 100%;">
-						<div style="text-align:center;line-height:20px;width:500px;float:left;font-family:KaiTi;font-size:16px">图19 电影网络热度与票房</div>
-						<div style="text-align:center;line-height:20px;width:500px;float:left;font-family:KaiTi;font-size:16px">图20 网络热度与票房回归图</div>	
-					</div>
 
+					<div style="width: 100%;">
+						<div style="text-align:center;line-height:20px;width:500px;float:left;font-family:KaiTi;font-size:18px;font-weight:bold">图19 电影网络热度与票房</div>
+						<div style="text-align:center;line-height:20px;width:500px;float:left;font-family:KaiTi;font-size:18px;font-weight:bold">图20 网络热度与票房回归图</div>	
+					</div>
+					<div style="text-align:left;line-height:5px;width:100%;margin:10px 0;font-size:22px;">&emsp;</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">网络热度一定程度上代表了影片的网络活跃度。通过回归分析发现，网络热度对票房的影响仅仅微弱于成本对票房的影响。在移动互联网时代，电影宣发会通过线上营销来给影片的上映提前造势，制片商会根据电影的网络热度和观众的偏好来调整电影内容。人们在观影前会网络上进行电影相关资料的搜索，因此，影片的网络热度与票房息息相关，越高的网络热度会带来越高的票房。</div>
+
+					<div style="text-align:left;line-height:5px;width:100%;margin:10px 0;font-size:22px;">&emsp;</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:20px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">Q：评分对票房会产生怎样的影响？ </div>
 					<div style="width:100%;">
 						<div id="bar19" style="height:400px;width:500px;float:left;"></div>
 						<div style="height:365px;width:500px;float:right;margin-top: 35px;">
 								<img src="图22  评分与票房回归图.png" width="450px" >
 						</div>
 					</div>
+
 					<div style="width: 100%;">
-						<div style="text-align:center;line-height:20px;width:500px;float:left;margin-bottom: 10px;font-family:KaiTi;font-size:16px">图21 电影评分与票房</div>
-						<div style="text-align:center;line-height:20px;width:500px;float:left;margin-bottom: 10px;font-family:KaiTi;font-size:16px">图22 评分与票房回归图</div>	
+						<div style="text-align:center;line-height:20px;width:500px;float:left;margin-bottom: 10px;font-family:KaiTi;font-size:18px;font-weight:bold">图21 电影评分与票房</div>
+						<div style="text-align:center;line-height:20px;width:500px;float:left;margin-bottom: 10px;font-family:KaiTi;font-size:18px;font-weight:bold">图22 评分与票房回归图</div>	
 					</div>
+					<div style="text-align:left;line-height:5px;width:100%;margin:10px 0;font-size:22px;">&emsp;</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">评价，也就是网络口碑，也成为电影质量的体现之一。因为消费者无法在观看前甄别电影的质量，就需要通过评分来获取其他观众的反馈以降低感知风险。所以，电影评分也能在一定程度上影响票房。但由于评分机制的不完善，评分对观众的选择只能产生有限的影响力。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">从图21中可以发现票房和评分倒挂的现象。那是因为，虽然年轻人是如今电影市场上主要的受众群体，但由于他们不是专业的电影欣赏者，缺乏对电影的辨识度和基本的判断。一些制片商夸大宣传影片质量，甚至少数制片商在网络上诋毁竞争对手，给竞争影片恶意打低分的这些行为，都会导致评分低的电影票房却奇高，评分高的电影未必有好票房。</div>
 
 					<script type="text/javascript">
 						var myChart = echarts.init(document.getElementById('bar17'));
@@ -15718,56 +15789,35 @@
 							myChart.setOption(option);
 					</script>
 
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">从图17、图19和图21中可以看出，电影成本、网络热度及评分与票房基本都成正相关的关系，说明成本、网络热度及评分都对票房存在影响。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">为进一步探究成本、评分与票房的具体关系，将通过建立多元线性回归模型来分析。</div>
-					
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family: 方正清刻本悦宋简体;font-size:15px">1、电影票房影响因素模型建立</div>
-						<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">基于前文的分析，本文认为电影的档期和类型都与票房有关，但不存在固定的哪个档期或者电影类型对票房影响最大，因为不同的电影适合不同的档期与类型，要因“片”制宜。因此，本文不考虑虚拟变量。首先对因变量和自变量两边取对数lg，得到变量lg（revenue）、lg（budget）、lg（popularity）和lg（vote_average）。其中，选取票房revenue作为被解释变量，投资成本budget、影片评分vote_average、网络热度popularity作为被解释变量。将lg（revenue）作为因变量，记为Y，将lg（budget）、lg（popularity）、lg（vote_average）作为自变量，记为X1、X2、X3，建立多元线性回归模型：Y=a+β1X1+β2X2+β3X3。在建立多元线性回归模型过程中，首先导入因变量与自变量，并采用逐步回归的方式进行数据分析与处理。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family: 方正清刻本悦宋简体;font-size:15px">2、回归模型实证</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">由回归系数表可以知，共线性检验值VIF均在1-10之间，表明回归模型不存在严重的多重共性。Sig.小于0.001，说明自变量对因变量的影响是显著的。因此，lg（budget）对lg（revenue）具有显著正向影响（Beta=0.438，Sig.=0.000<0.001）；lg（popularity）对lg（revenue）具有显著正向影响（Beta=0.436，Sig.=0.000<0.001）；lg（vote_average）对lg（revenue）具有显著正向影响（Beta=0.063，Sig.=0.000<0.001）。根据Beta值的大小可得出，三者对票房的影响程度从大到小依次是成本Budge、网络热度popularity和评分vote_average。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family: 方正清刻本悦宋简体;font-size:15px">3、回归模型检验与修正</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">i回归方程的显著性检验——F检验</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">各解释变量联合起来对被解释变量有显著的线性关系，并不意味着每一个解释变量分别对被解释变量有显著的线性关系。F检验能用作检验整个回归关系的显著性。由表3方差分析表可以知，回归模型的显著性检验结果F值为1399.38，且在0.000的水平上显著，模型显著性检验通过。说明模型总体存在。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">ii回归方程的拟合优度检验</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">由分析可知，回归模型的复相关系数R为0.753，决定系数R平方值为0.567，调整的 R 方为0.567，即有56.7%的y能被该模型的预测变量所解释，因此，该模型的拟合度较好。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family: 方正清刻本悦宋简体;font-size:15px">4、回归结果与分析</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">根据回归模型的显著性检验与拟合优度检验，结合回归方程系数，最终标准化后回归方程为：
-							Y=0.438X1+0.436X2+0.063X3</div>
-
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">从回归模型中可以得知，成本、网络热度、评分三个因素对电影票房的影响都是显著的，且这三个因素都与票房呈正相关，其中，成本对票房的影响最大，其次为网络热度，最小的为评分。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">电影的成本几乎影响了电影的整个生产过程，从前期的准备，中期的制作，到后期的宣传发行，都受到成本的牵制，而票房本身就与制作各垂直环节密切相关。所以也正如预想的，成本对票房的影响在三个因素中是最大的。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">网络热度一定程度上代表了影片的网络活跃度。在移动互联网时代，电影宣发会通过线上营销来给影片的上映提前造势，制片商会根据电影的网络热度和观众的偏好来调整电影内容。人们在观影前会网络上进行电影相关资料的搜索，因此，影片的网络热度与票房息息相关，越高的网络热度会带来越高的票房。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">评价，也就是网络口碑，也成为电影质量的体现之一。因为消费者无法在观看前甄别电影的质量，就需要通过评分来获取其他观众的反馈以降低感知风险。所以，电影评分也能在一定程度上影响票房。但由于评分机制的不完善，评分对观众的选择只能产生有限的影响力。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">从图21中可以发现票房和评分倒挂的现象。那是因为，虽然年轻人是如今电影市场上主要的受众群体，但由于他们不是专业的电影欣赏者，缺乏对电影的辨识度和基本的判断。一些制片商夸大宣传影片质量，甚至少数制片商在网络上诋毁竞争对手，给竞争影片恶意打低分的这些行为，都会导致评分低的电影票房却奇高，评分高的电影未必有好票房。</div>
 					
 				</div>
 				<div role="tabpanel" class="tab-pane" id="messages" style="padding-bottom: 15px;border-bottom: 2px solid gray;">
-					<div style="text-align:left;line-height:50px;width:100%;font-size:24px;font-family: 方正清刻本悦宋简体">三、结论与建议</div>
+					<div style="text-align:left;line-height:80px;width:100%;font-size:30px;font-family: 方正宋刻本秀楷简体;font-weight:900">三、结论与建议</div>
 					
-					<div style="text-align:left;line-height:25px;width:100%;margin:20px 0;font-size:22px;font-family: 方正清刻本悦宋简体">（一）结论</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">基于以上实证分析结果可以得出，一部电影的成功是由多种不同因素互相组合导致的，所以电影市场不存在成功的公式，但存在一定的成功规律：</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">经济环境有助于电影市场的开阔和电影产业的发展；</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">对于电影档期来说，节假日档期和暑期档虽然较之其他档期具备更庞大的观影人次和更强劲集中的观影消费需求，但不是所有电影都适合在这两个火爆的档期上映的，比如一些小成本制作电影，应该尽量避开竞争激烈的档期，选择更适合自己的档期；</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">对电影类型来说，虽然根据分析，市场上最有潜力的是这五种类型：动画片、冒险片、家庭片、科幻片和奇幻片，风险最低的是恐怖片和纪录片，但面对不同年龄，不同审美水平，不同层次的消费群体，制片商应该在影片拍摄前就对市场进行细分，确定目标受众，根据目标受众的偏好，结合自己的优势来选择影片类型。同时还应该打破固化思维，尝试做一些类型融合的创新，在故事的原创性上多下功夫，通过内容差异化来增强竞争力；</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">对于电影的成本、网络热度和评分来说，经济基础决定上层建筑，成本在这三个因素中对电影的影响是最大的；网络热度在一定程度上体现了电影的关注度和知晓度，越高的网络热度说明电影在消费者中的讨论度越高，话题一旦升温就容易造成病毒式传播，这无疑会带动流量的增加和票房收入的提升；而评分对于电影票房的影响就远不如前两者，甚至会出现票房与评分倒挂的现象。究其原因，还是因为年轻人作为电影消费主体对电影品质认识不足、电影行业缺乏完善的评分机制以及电影市场存在的恶性竞争。尽管如此，由于评分对电影票房存在正向显著影响，制片商还是可以通过评分来更深入地了解消费者的想法，以打造更迎合受众需求的影片。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">（一）结论</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">基于以上实证分析结果可以得出，一部电影的成功是由多种不同因素互相组合导致的，所以电影市场不存在成功的公式，但存在一定的成功规律：</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">经济环境有助于电影市场的开阔和电影产业的发展；</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">对于电影档期来说，节假日档期和暑期档虽然较之其他档期具备更庞大的观影人次和更强劲集中的观影消费需求，但不是所有电影都适合在这两个火爆的档期上映的，比如一些小成本制作电影，应该尽量避开竞争激烈的档期，选择更适合自己的档期；</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">对电影类型来说，虽然根据分析，市场上最有潜力的是这五种类型：动画片、冒险片、家庭片、科幻片和奇幻片，风险最低的是恐怖片和纪录片，但面对不同年龄，不同审美水平，不同层次的消费群体，制片商应该在影片拍摄前就对市场进行细分，确定目标受众，根据目标受众的偏好，结合自己的优势来选择影片类型。同时还应该打破固化思维，尝试做一些类型融合的创新，在故事的原创性上多下功夫，通过内容差异化来增强竞争力；</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">对于电影的成本、网络热度和评分来说，经济基础决定上层建筑，成本在这三个因素中对电影的影响是最大的；网络热度在一定程度上体现了电影的关注度和知晓度，越高的网络热度说明电影在消费者中的讨论度越高，话题一旦升温就容易造成病毒式传播，这无疑会带动流量的增加和票房收入的提升；而评分对于电影票房的影响就远不如前两者，甚至会出现票房与评分倒挂的现象。究其原因，还是因为年轻人作为电影消费主体对电影品质认识不足、电影行业缺乏完善的评分机制以及电影市场存在的恶性竞争。尽管如此，由于评分对电影票房存在正向显著影响，制片商还是可以通过评分来更深入地了解消费者的想法，以打造更迎合受众需求的影片。</div>
 					
-					<div style="text-align:left;line-height:25px;width:100%;margin:20px 0;font-size:22px;font-family: 方正清刻本悦宋简体">（二）建议</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">基于以上实证分析结果可以得出，一部电影的成功是由多种不同因素互相组合导致的，所以电影市场不存在成功的公式，但存在一定的成功规律。经济环境、档期、类型、成本、网络热度和评分都会对电影票房影响。目前经济环境有利于电影的发展，电影行业从业者应该要抓住这一机遇；不同的电影适合不同的档期，电影在选档时更应该遵循“匹配”原则，而不是一味追求黄金档期；对于电影类型来说，市场上最有潜力的是这五种类型：动画片、冒险片、家庭片、科幻片和奇幻片，它们都具备冲击高票房的潜力。恐怖片和纪录片不仅制作成本小而且风险最底，在投资回报上也是最有保证的。不过基于电影市场的发展趋势，制片商更应该关注电影类型的有机融合和注重原创内容的打造；通过建立线性回归模型发现，电影成本对票房影响最大，电影的网络热度次之，评分影响最低。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">因此，根据探究得出以下建议:</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family: 方正清刻本悦宋简体;font-size:15px">1、内容为王，提高创作水平和质量</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">目前电影市场虽有着利于电影行业发展的大环境，但影市场同质化比较严重，缺乏有想象力、感染力作品。随着竞争的增加，制片商还是该回归到影片内容本身，这才是影片最本质最核心的部分。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family: 方正清刻本悦宋简体;font-size:15px">2、因“片”制宜，重构正确档期观念</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">关于电影档期，不同类型的影片适合不同的档期，黄金档期并不能保障所有电影的票房，要依据电影本身的类型瞄准某个档期。档期应与类型电影的定位一致，才能使档期营销的对象具有较强的针对性。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family: 方正清刻本悦宋简体;font-size:15px">3、融合类型，多元化电影故事表达方式</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">关于电影类型来说，虽然存在最具潜力和风险最小，投资回报率最高的类型，但如今的电影市场，各种类型的融合已经是大势所趋。结合不同类型进行和谐统一的融合，突出类型元素，形成内容具有差异化的商业电影，才能使影片更成功。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family: 方正清刻本悦宋简体;font-size:15px">4、增加投资，保障电影质量</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">通过建立多元线性回归模型进行回归分析可以发现，电影成本对票房的影响最大。因此电影投资方可根据市场需求等调整投资额度，以追求较高的票房收入。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family: 方正清刻本悦宋简体;font-size:15px">5、提高热度，构建全面宣发体系</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">在多媒体融合的时代背景下，制片方要抓住“互联网＋”所带来的机遇，构建新颖立体化的发行体系，通过增加网络热度来博得更多的关注度。</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family: 方正清刻本悦宋简体;font-size:15px">6、打造口碑，重视网络评分</div>
-					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;">制片商不仅可以通过评分掌握观众喜爱偏好，以此来调整设计影片，还可以最大化发挥口碑的影响力以增加影片知晓度。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:20px 0;font-size:25px;font-family: 方正宋刻本秀楷简体;font-weight:900">（二）建议</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">基于以上实证分析结果可以得出，一部电影的成功是由多种不同因素互相组合导致的，所以电影市场不存在成功的公式，但存在一定的成功规律。经济环境、档期、类型、成本、网络热度和评分都会对电影票房影响。目前经济环境有利于电影的发展，电影行业从业者应该要抓住这一机遇；不同的电影适合不同的档期，电影在选档时更应该遵循“匹配”原则，而不是一味追求黄金档期；对于电影类型来说，市场上最有潜力的是这五种类型：动画片、冒险片、家庭片、科幻片和奇幻片，它们都具备冲击高票房的潜力。恐怖片和纪录片不仅制作成本小而且风险最底，在投资回报上也是最有保证的。不过基于电影市场的发展趋势，制片商更应该关注电影类型的有机融合和注重原创内容的打造；通过建立线性回归模型发现，电影成本对票房影响最大，电影的网络热度次之，评分影响最低。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">因此，根据探究得出以下建议:</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family:SimHei;font-size:16px;font-weight:bold">1、内容为王，提高创作水平和质量</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">目前电影市场虽有着利于电影行业发展的大环境，但影市场同质化比较严重，缺乏有想象力、感染力作品。随着竞争的增加，制片商还是该回归到影片内容本身，这才是影片最本质最核心的部分。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family:SimHei;font-size:16px;font-weight:bold">2、因“片”制宜，重构正确档期观念</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">关于电影档期，不同类型的影片适合不同的档期，黄金档期并不能保障所有电影的票房，要依据电影本身的类型瞄准某个档期。档期应与类型电影的定位一致，才能使档期营销的对象具有较强的针对性。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family:SimHei;font-size:16px;font-weight:bold">3、融合类型，多元化电影故事表达方式</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">关于电影类型来说，虽然存在最具潜力和风险最小，投资回报率最高的类型，但如今的电影市场，各种类型的融合已经是大势所趋。结合不同类型进行和谐统一的融合，突出类型元素，形成内容具有差异化的商业电影，才能使影片更成功。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family:SimHei;font-size:16px;font-weight:bold">4、增加投资，保障电影质量</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">通过建立多元线性回归模型进行回归分析可以发现，电影成本对票房的影响最大。因此电影投资方可根据市场需求等调整投资额度，以追求较高的票房收入。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family:SimHei;font-size:16px;font-weight:bold">5、提高热度，构建全面宣发体系</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">在多媒体融合的时代背景下，制片方要抓住“互联网＋”所带来的机遇，构建新颖立体化的发行体系，通过增加网络热度来博得更多的关注度。</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-family:SimHei;font-size:16px;font-weight:bold">6、打造口碑，重视网络评分</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin:10px 0;font-size:15px;">制片商不仅可以通过评分掌握观众喜爱偏好，以此来调整设计影片，还可以最大化发挥口碑的影响力以增加影片知晓度。</div>
 
-					<div style="text-align:left;line-height:25px;width:100%;margin-top:20px;font-family: 方正清刻本悦宋简体">（附：电影海报）</div>
+					<div style="text-align:left;line-height:25px;width:100%;margin-top:20px;font-family: 方正宋刻本秀楷简体">（附：电影海报）</div>
 					<img src="尾图.jpg" width="1000px" >
 				</div>
 			</div>
@@ -15779,11 +15829,9 @@
 			})
 		</script>
 
-		<div style="text-align:right;line-height:25px;width:100%;margin:10px 0;font-size:16px;">数据来源：</div>
-		<div style="text-align:right;line-height:25px;width:100%;margin:10px 0;font-size:16px;">Kaggle网：https://www.kaggle.com</div>
-		<div style="text-align:right;line-height:25px;width:100%;margin:10px 0;font-size:16px;">指导老师：王成军 副教授</div>
-		<div style="text-align:right;line-height:25px;width:100%;margin:10px 0;font-size:16px;">作者：朱文婷</div>
-
+		<div style="text-align:right;line-height:15px;width:100%;margin:10px 0;font-size:14px">数据来源：Kaggle网：https://www.kaggle.com</div>
+		<div style="text-align:right;line-height:15px;width:100%;margin:10px 0;font-size:14px">指导教师：王成军 副教授</div>
+		<div style="text-align:right;line-height:15px;width:100%;margin:10px 0;font-size:14px">作者：141050097 新闻与新媒体系 朱文婷</div>
 </body>
 
 </html>
